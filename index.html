@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1220">
+  <meta name="description" content="Junior Transportes - solicite seu orçamento de carreto e mudanças pelo WhatsApp.">
+  <title>Junior Transportes | Carretos e Mudanças</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --dark: #0b1220;
+      --dark2: #111c2f;
+      --orange: #f97316;
+      --orange2: #fb923c;
+      --light: #f7f8fa;
+      --text: #172033;
+      --muted: #667085;
+      --white: #fff;
+      --border: #e5e7eb;
+      --green: #25d366;
+    }
+    body {
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background: var(--light);
+      line-height: 1.5;
+    }
+    header {
+      background: linear-gradient(135deg, var(--dark), var(--dark2));
+      color: white;
+      overflow: hidden;
+    }
+    nav {
+      max-width: 1120px;
+      margin: auto;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .brand { font-size: 1.25rem; font-weight: 800; letter-spacing: -.4px; }
+    .brand span { color: var(--orange2); }
+    .nav-btn {
+      color: white; text-decoration: none; font-weight: 700;
+      border: 1px solid rgba(255,255,255,.2); padding: 10px 16px;
+      border-radius: 999px;
+    }
+    .hero {
+      max-width: 1120px; margin: auto; padding: 70px 20px 85px;
+      display: grid; grid-template-columns: 1.15fr .85fr; gap: 50px; align-items: center;
+    }
+    .badge {
+      display: inline-block; background: rgba(249,115,22,.14); color: #fdba74;
+      padding: 8px 13px; border-radius: 999px; font-size: .85rem; font-weight: 800;
+      margin-bottom: 18px;
+    }
+    h1 { font-size: clamp(2.3rem, 6vw, 4.5rem); line-height: 1.02; letter-spacing: -2px; }
+    .hero h1 span { color: var(--orange2); }
+    .hero p { color: #cbd5e1; font-size: 1.1rem; max-width: 610px; margin: 22px 0 30px; }
+    .cta {
+      display: inline-flex; align-items: center; gap: 9px; background: var(--orange);
+      color: white; text-decoration: none; padding: 15px 22px; border-radius: 12px;
+      font-weight: 800; box-shadow: 0 10px 25px rgba(249,115,22,.25);
+    }
+    .hero-card {
+      background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12);
+      border-radius: 24px; padding: 28px; backdrop-filter: blur(8px);
+    }
+    .truck { font-size: 5rem; margin-bottom: 10px; }
+    .hero-card h3 { font-size: 1.35rem; margin-bottom: 7px; }
+    .hero-card p { font-size: .98rem; margin: 0; }
+    section { max-width: 1120px; margin: auto; padding: 65px 20px; }
+    .section-title { text-align: center; margin-bottom: 38px; }
+    .section-title h2 { font-size: 2rem; letter-spacing: -.7px; }
+    .section-title p { color: var(--muted); margin-top: 8px; }
+    .services { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .service {
+      background: white; border: 1px solid var(--border); border-radius: 18px;
+      padding: 23px; box-shadow: 0 5px 20px rgba(16,24,40,.04);
+    }
+    .icon { font-size: 1.9rem; margin-bottom: 13px; }
+    .service h3 { font-size: 1.05rem; margin-bottom: 6px; }
+    .service p { color: var(--muted); font-size: .9rem; }
+    .quote-wrap {
+      background: white; border: 1px solid var(--border); border-radius: 24px;
+      padding: clamp(22px, 4vw, 40px); box-shadow: 0 10px 35px rgba(16,24,40,.07);
+      max-width: 850px; margin: auto;
+    }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 17px; }
+    .full { grid-column: 1 / -1; }
+    label { display: block; font-size: .9rem; font-weight: 750; margin-bottom: 7px; }
+    input, select, textarea {
+      width: 100%; border: 1px solid #d6dae1; background: #fff; color: var(--text);
+      padding: 13px 14px; border-radius: 11px; outline: none; font: inherit;
+      transition: .2s;
+    }
+    input:focus, select:focus, textarea:focus { border-color: var(--orange); box-shadow: 0 0 0 3px rgba(249,115,22,.12); }
+    textarea { min-height: 105px; resize: vertical; }
+    .hint { color: var(--muted); font-size: .78rem; margin-top: 5px; }
+    .send {
+      width: 100%; border: 0; cursor: pointer; background: var(--green); color: white;
+      padding: 16px; border-radius: 12px; font: inherit; font-weight: 850; font-size: 1rem;
+      margin-top: 20px; box-shadow: 0 8px 20px rgba(37,211,102,.18);
+    }
+    .trust {
+      background: var(--dark); color: white; border-radius: 25px; padding: 35px;
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 20px;
+    }
+    .trust div { text-align: center; }
+    .trust strong { display: block; font-size: 1.05rem; margin-bottom: 5px; }
+    .trust span { color: #aeb9ca; font-size: .88rem; }
+    footer { background: #070d17; color: #9aa7ba; text-align: center; padding: 28px 20px 90px; font-size: .88rem; }
+    .whatsapp {
+      position: fixed; right: 18px; bottom: 18px; z-index: 10;
+      width: 58px; height: 58px; border-radius: 50%; background: var(--green);
+      display: grid; place-items: center; color: white; text-decoration: none;
+      font-size: 1.65rem; box-shadow: 0 8px 25px rgba(0,0,0,.2);
+    }
+    @media (max-width: 800px) {
+      .hero { grid-template-columns: 1fr; padding-top: 48px; }
+      .hero-card { display: none; }
+      .services { grid-template-columns: 1fr 1fr; }
+      .trust { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 560px) {
+      .nav-btn { display: none; }
+      .hero p { font-size: 1rem; }
+      .services, .form-grid { grid-template-columns: 1fr; }
+      .full { grid-column: auto; }
+      section { padding: 50px 15px; }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <nav>
+    <div class="brand">Junior <span>Transportes</span></div>
+    <a class="nav-btn" href="#orcamento">Pedir orçamento</a>
+  </nav>
+
+  <div class="hero">
+    <div>
+      <div class="badge">🚚 Carretos • Mudanças • Transportes</div>
+      <h1>Seu transporte com <span>segurança</span> e cuidado.</h1>
+      <p>Precisa fazer uma mudança ou transportar móveis? Envie os detalhes do seu serviço e receba seu orçamento pelo WhatsApp.</p>
+      <a class="cta" href="#orcamento">📋 Solicitar orçamento</a>
+    </div>
+    <div class="hero-card">
+      <div class="truck">🚚</div>
+      <h3>Orçamento rápido e sem compromisso</h3>
+      <p>Conte para a Junior Transportes o que você precisa transportar. Quanto mais detalhes, mais preciso será o orçamento.</p>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section>
+    <div class="section-title">
+      <h2>O que podemos transportar?</h2>
+      <p>Atendimento para diferentes tipos de serviços.</p>
+    </div>
+    <div class="services">
+      <div class="service"><div class="icon">🏠</div><h3>Mudança residencial</h3><p>Casas, apartamentos e mudanças completas.</p></div>
+      <div class="service"><div class="icon">🏢</div><h3>Mudança comercial</h3><p>Transporte para lojas, escritórios e empresas.</p></div>
+      <div class="service"><div class="icon">🛋️</div><h3>Transporte de móveis</h3><p>Sofás, camas, armários, eletrodomésticos e mais.</p></div>
+      <div class="service"><div class="icon">📦</div><h3>Pequenos carretos</h3><p>Para aquele transporte que você precisa resolver.</p></div>
+    </div>
+  </section>
+
+  <section id="orcamento">
+    <div class="section-title">
+      <h2>Solicite seu orçamento</h2>
+      <p>Preencha os dados abaixo. Ao enviar, o pedido será aberto no WhatsApp.</p>
+    </div>
+
+    <div class="quote-wrap">
+      <form id="quoteForm">
+        <div class="form-grid">
+          <div>
+            <label for="nome">Seu nome *</label>
+            <input id="nome" required placeholder="Ex.: João Silva">
+          </div>
+          <div>
+            <label for="telefone">Seu WhatsApp *</label>
+            <input id="telefone" required inputmode="tel" placeholder="(19) 99999-9999">
+          </div>
+          <div>
+            <label for="origem">Local de origem *</label>
+            <input id="origem" required placeholder="Cidade / bairro">
+          </div>
+          <div>
+            <label for="destino">Local de destino *</label>
+            <input id="destino" required placeholder="Cidade / bairro">
+          </div>
+          <div>
+            <label for="data">Data desejada *</label>
+            <input id="data" type="date" required>
+          </div>
+          <div>
+            <label for="servico">Tipo de serviço *</label>
+            <select id="servico" required>
+              <option value="">Selecione</option>
+              <option>Mudança residencial</option>
+              <option>Mudança comercial</option>
+              <option>Transporte de móveis</option>
+              <option>Pequeno carreto</option>
+              <option>Outro</option>
+            </select>
+          </div>
+          <div>
+            <label for="origemTipo">Imóvel de origem</label>
+            <select id="origemTipo">
+              <option>Casa</option><option>Apartamento</option><option>Comércio</option><option>Outro</option>
+            </select>
+          </div>
+          <div>
+            <label for="destinoTipo">Imóvel de destino</label>
+            <select id="destinoTipo">
+              <option>Casa</option><option>Apartamento</option><option>Comércio</option><option>Outro</option>
+            </select>
+          </div>
+          <div>
+            <label for="elevador">Possui elevador?</label>
+            <select id="elevador"><option>Não</option><option>Sim</option></select>
+          </div>
+          <div>
+            <label for="escadas">Possui escadas?</label>
+            <select id="escadas"><option>Não</option><option>Sim</option></select>
+          </div>
+          <div class="full">
+            <label for="itens">O que será transportado? *</label>
+            <textarea id="itens" required placeholder="Ex.: sofá, cama, guarda-roupa, geladeira, máquina de lavar..."></textarea>
+          </div>
+          <div class="full">
+            <label for="observacoes">Observações</label>
+            <textarea id="observacoes" placeholder="Informe detalhes importantes, como quantidade de caixas, dificuldade de acesso, estacionamento etc."></textarea>
+          </div>
+        </div>
+        <button class="send" type="submit">📲 Enviar pedido pelo WhatsApp</button>
+        <p class="hint">Ao clicar, o WhatsApp será aberto com as informações preenchidas.</p>
+      </form>
+    </div>
+  </section>
+
+  <section>
+    <div class="trust">
+      <div><strong>📲 Atendimento direto</strong><span>Fale diretamente pelo WhatsApp.</span></div>
+      <div><strong>💰 Orçamento sem compromisso</strong><span>Envie os detalhes e receba uma cotação.</span></div>
+      <div><strong>🤝 Cuidado com seus bens</strong><span>Transporte pensado para sua mudança.</span></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <strong>Junior Transportes</strong><br>
+  Carretos e mudanças • Orçamentos pelo WhatsApp
+</footer>
+
+<a class="whatsapp" href="https://wa.me/5519999711241" target="_blank" aria-label="WhatsApp">◉</a>
+
+<script>
+  const WHATSAPP = "5519999711241";
+
+  function val(id) {
+    return document.getElementById(id).value.trim();
+  }
+
+  document.getElementById("quoteForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const data = val("data");
+    let dataFormatada = data;
+    if (data) {
+      const [ano, mes, dia] = data.split("-");
+      dataFormatada = `${dia}/${mes}/${ano}`;
+    }
+
+    const mensagem =
+`Olá! Gostaria de solicitar um orçamento com a Junior Transportes. 🚚
+
+👤 Nome: ${val("nome")}
+📱 Meu WhatsApp: ${val("telefone")}
+📍 Origem: ${val("origem")}
+📍 Destino: ${val("destino")}
+📅 Data desejada: ${dataFormatada}
+🚚 Serviço: ${val("servico")}
+🏠 Origem: ${val("origemTipo")}
+🏢 Destino: ${val("destinoTipo")}
+🛗 Elevador: ${val("elevador")}
+🪜 Escadas: ${val("escadas")}
+
+📦 Itens a transportar:
+${val("itens")}
+
+📝 Observações:
+${val("observacoes") || "Nenhuma"}`;
+
+    const url = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(mensagem)}`;
+    window.open(url, "_blank");
+  });
+</script>
+</body>
+</html>
